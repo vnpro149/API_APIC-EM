@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "be07ab4a-ff40-46c3-8667-982803e7aa1a",
+		"name": "APIC-EM_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27033646"
+	},
+	"item": [
+		{
+			"name": "Get Ticket",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"vnpro@123\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/ticket",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"ticket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get list Devices",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{ticket}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/network-device",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"network-device"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Device",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{ticket}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/network-device/d0116b8b-1c27-4785-a2e9-08ecfb1906c7",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"network-device",
+						"d0116b8b-1c27-4785-a2e9-08ecfb1906c7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Device",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{ticket}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/network-device/d0116b8b-1c27-4785-a2e9-08ecfb1906c7",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"network-device",
+						"d0116b8b-1c27-4785-a2e9-08ecfb1906c7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Device",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{ticket}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userName\": \"vnpro\",\r\n  \"cliTransport\": \"ssh\",\r\n  \"password\": \"vnpro@123\",\r\n  \"snmpROCommunity\": \"public\",\r\n  \"snmpRetry\": 3,\r\n  \"snmpTimeout\": 5,\r\n  \"snmpVersion\": \"v2\",\r\n  \"snmpRWCommunity\": \"private\",\r\n  \"ipAddress\": [\r\n    \"10.215.27.137\"\r\n  ],\r\n  \"enablePassword\": \"vnpro@321\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/network-device",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"network-device"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
